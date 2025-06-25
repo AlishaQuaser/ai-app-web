@@ -92,7 +92,7 @@ const MongoDBAIAssistant: React.FC = () => {
       {/* Background Effects */}
       <Meteors number={20} className="absolute inset-0" />
 
-      {/* Header Section */}
+      {/* Header Section - Sticky and Fixed at Top */}
       <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-xl">
         <header className="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -111,10 +111,27 @@ const MongoDBAIAssistant: React.FC = () => {
         </header>
       </div>
 
-      {/* Main Content Area */}
-      <div className="max-w-6xl mx-auto px-6 mb-32 mt-16">
-        {/* Welcome Card */}
-        <div>
+      {/* Navbar Trigger Area - Hidden by Default, Shows Navbar on Hover with Animation */}
+      <div className="fixed top-0 left-0 right-0 h-10 z-30">
+        <div className="relative w-full h-full">
+          {/* Navbar Content - Hidden by default, slides down on hover */}
+          <div className="absolute top-0 left-0 right-0 bg-slate-800/90 backdrop-blur-xl transform -translate-y-full transition-transform duration-300 hover:translate-y-0">
+            <nav className="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
+              <h2 className="text-lg font-bold text-white">Navigation Menu</h2>
+              <div className="flex gap-4">
+                <Button variant="ghost" className="text-white">Home</Button>
+                <Button variant="ghost" className="text-white">Settings</Button>
+                <Button variant="ghost" className="text-white">Help</Button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Area - Scrollable only if content exceeds viewport */}
+      <div className="max-w-6xl mx-auto px-6 mb-0 mt-15 overflow-y-hidden max-h-[calc(100vh-130px)] hover:overflow-y-auto">
+        {/* Welcome Card - Sticky and Fixed at Top */}
+        <div className="sticky top-0 bg-slate-900/95 backdrop-blur-xl z-10">
           <div className="bg-transparent rounded-2xl p-4 mb-4 relative overflow-hidden border border-cyan-500/30">
             <div className="p-0">
               <div className="flex items-center gap-2 mb-3">
@@ -193,15 +210,15 @@ const MongoDBAIAssistant: React.FC = () => {
         )}
       </div>
 
-      {/* Input Section */}
+      {/* Input Section - Sticky and Fixed at Bottom */}
       <div>
-        <div className="fixed bottom-0 left-0 right-0 p-4 md:p-6 z-10 bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
+        <div className="fixed bottom-0 left-0 right-0 p-2 md:p-4 z-10 bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
           <div className="max-w-6xl mx-auto flex gap-4 items-end">
             <Textarea
               value={userInput}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}
-              placeholder="Ask me anything about your MongoDB data... 🤖"
+              placeholder="Type your query here..."
               className="flex-1 bg-white/8 border-2 border-white/10 focus:border-cyan-400 focus:bg-white/12 focus:shadow-lg focus:shadow-cyan-500/20 text-base text-white placeholder:text-slate-500 rounded-2xl p-4 min-h-[60px] max-h-[120px]"
               rows={3}
             />
