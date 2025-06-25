@@ -205,7 +205,7 @@ const MongoDBAIAssistant: React.FC = () => {
             onChange={handleInputChange}
             onKeyPress={handleKeyPress}
             placeholder="Type your query here..."
-            className="flex-1 bg-white/8 border-2 border-white/10 focus:border-cyan-400 focus:bg-white/12 focus:shadow-lg focus:shadow-cyan-500/20 text-base text-white placeholder:text-slate-500 rounded-2xl p-4 min-h-[60px] max-h-[120px]"
+            className="flex-1 bg-white/8 border-2 border-white/10 focus:border-cyan-400 focus:bg-white/12 focus:shadow-lg focus:shadow-cyan-500/20 text-base text-white placeholder:text-slate-500 rounded-2xl p-4 min-h-[60px] max-h-[60px]"
             rows={1}
           />
           <Button
