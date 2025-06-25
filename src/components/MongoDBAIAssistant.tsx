@@ -88,7 +88,7 @@ const MongoDBAIAssistant: React.FC = () => {
   ];
 
   return (
-    <div className=" backdrop-blur-xl text-white flex flex-col relative">
+    <div className=" backdrop-blur-xl text-white flex flex-col relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Background Effects */}
       <Meteors number={20} className="absolute inset-0" />
       {/* <Particles className="absolute inset-0" /> */}
