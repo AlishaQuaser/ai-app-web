@@ -116,7 +116,7 @@ const MongoDBAIAssistant: React.FC = () => {
       </div> */}
 
       {/* Main Content Area - Scrollable only if needed */}
-      <div className="mb-7 overflow-y-auto px-3 p-0 mt-3">
+      <div className={`mb-6 ${isQueryGenerated ? 'overflow-y-auto' : 'overflow-hidden'} px-3 p-0 mt-3`}>
         {/* Welcome Card */}
         <Card className="bg-transparent rounded-2xl  py-0 m-0 relative overflow-hidden border border-cyan-500/30">
           <CardContent className="p-6">
