@@ -88,13 +88,17 @@ const MongoDBAIAssistant: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900/80 backdrop-blur-xl text-white p-4 md:p-6 relative overflow-hidden">
+    <div className=" backdrop-blur-xl text-white flex flex-col relative">
       {/* Background Effects */}
       <Meteors number={20} className="absolute inset-0" />
+      {/* <Particles className="absolute inset-0" /> */}
 
-      {/* Header Section - Sticky and Fixed at Top */}
-      <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-xl">
-        <header className="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
+      {/* Sticky Top Navbar */}
+      
+
+      {/* Fixed Header Section - MongoDB AI Assistant */}
+      {/* <div className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/30">
+        <header className="px-6 py-6 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl shadow-lg shadow-cyan-500/25 flex items-center justify-center animate-pulse">
               <Database className="w-6 h-6 text-white" />
@@ -109,127 +113,108 @@ const MongoDBAIAssistant: React.FC = () => {
             <span className="text-sm font-semibold text-white">Connected</span>
           </Badge>
         </header>
-      </div>
+      </div> */}
 
-      {/* Navbar Trigger Area - Hidden by Default, Shows Navbar on Hover with Animation */}
-      <div className="fixed top-0 left-0 right-0 h-10 z-30">
-        <div className="relative w-full h-full">
-          {/* Navbar Content - Hidden by default, slides down on hover */}
-          <div className="absolute top-0 left-0 right-0 bg-slate-800/90 backdrop-blur-xl transform -translate-y-full transition-transform duration-300 hover:translate-y-0">
-            <nav className="max-w-6xl mx-auto px-6 py-2 flex justify-between items-center">
-              <h2 className="text-lg font-bold text-white">Navigation Menu</h2>
-              <div className="flex gap-4">
-                <Button variant="ghost" className="text-white">Home</Button>
-                <Button variant="ghost" className="text-white">Settings</Button>
-                <Button variant="ghost" className="text-white">Help</Button>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content Area - Scrollable only if content exceeds viewport */}
-      <div className="max-w-6xl mx-auto px-6 mb-0 mt-15 overflow-y-hidden max-h-[calc(100vh-130px)] hover:overflow-y-auto">
-        {/* Welcome Card - Sticky and Fixed at Top */}
-        <div className="sticky top-0 bg-slate-900/95 backdrop-blur-xl z-10">
-          <div className="bg-transparent rounded-2xl p-4 mb-4 relative overflow-hidden border border-cyan-500/30">
-            <div className="p-0">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
-                <span className="text-sm font-semibold text-emerald-400">Welcome</span>
-              </div>
-              <AnimatedGradientText className="text-2xl font-bold mb-2 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
-                Welcome to your AI-powered MongoDB assistant! 🚀
-              </AnimatedGradientText>
-              <p className="text-base leading-relaxed text-slate-300 mb-4">
-                Transform your natural language queries into powerful MongoDB operations. Simply describe what you're looking for, and I'll generate the perfect query with explanations and optimizations.
-              </p>
-              <div>
-                <h3 className="text-base font-semibold text-slate-200 mb-3">✨ Try these example queries:</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                  {exampleQueries.map((query, index) => (
-                    <div key={index} className="bg-white/8 hover:bg-cyan-500/10 border border-cyan-500/20 hover:border-cyan-500/50 p-3 rounded-xl text-left text-sm text-slate-300 hover:text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyan-500/20" onClick={() => handleExampleClick(query)}>
-                      {query}
-                    </div>
-                  ))}
-                </div>
+      {/* Main Content Area - Scrollable only if needed */}
+      <div className="mb-7 overflow-y-auto px-3 p-0 mt-3">
+        {/* Welcome Card */}
+        <Card className="bg-transparent rounded-2xl  py-0 m-0 relative overflow-hidden border border-cyan-500/30">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
+              <span className="text-sm font-semibold text-emerald-400">Welcome</span>
+            </div>
+            <AnimatedGradientText className="text-2xl font-bold mb-2 bg-gradient-to-r from-white to-cyan-400 bg-clip-text text-transparent">
+              Welcome to your AI-powered MongoDB assistant! 🚀
+            </AnimatedGradientText>
+            <p className="text-base leading-relaxed text-slate-300 mb-4">
+              Transform your natural language queries into powerful MongoDB operations. Simply describe what you're looking for, and I'll generate the perfect query with explanations and optimizations.
+            </p>
+            <div>
+              <h3 className="text-base font-semibold text-slate-200 mb-3">✨ Try these example queries:</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {exampleQueries.map((query, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white/8 hover:bg-cyan-500/10 border border-cyan-500/20 hover:border-cyan-500/50 p-3 rounded-xl text-left text-sm text-slate-300 hover:text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyan-500/20 cursor-pointer" 
+                    onClick={() => handleExampleClick(query)}
+                  >
+                    {query}
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Query Result Card (Conditional) */}
         {isQueryGenerated && (
-          <div>
-            <NeonGradientCard className="bg-white/5 backdrop-blur-xl border border-emerald-500/30 rounded-2xl p-6 my-8 relative overflow-hidden">
-              <CardContent className="p-0">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
-                  <span className="text-sm font-semibold text-emerald-400">Query Generated</span>
-                </div>
-                <p className="text-base text-slate-300 mb-4">
-                  I've generated the perfect MongoDB query for your request. Here's what I found:
-                </p>
-                <div className="bg-black/40 border border-white/10 rounded-xl p-6 mb-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="text-sm font-semibold text-cyan-400">MongoDB Query</span>
-                    <Button
-                      onClick={handleCopy}
-                      variant="ghost"
-                      className="text-white hover:bg-slate-700"
-                      size="sm"
-                    >
-                      {isCopied ? <Check className="w-4 h-4 mr-2" /> : <Copy className="w-4 h-4 mr-2" />}
-                      {isCopied ? 'Copied' : 'Copy'}
-                    </Button>
-                  </div>
-                  <pre className="font-mono text-sm text-slate-300 whitespace-pre-wrap">
-                    <code>{generatedQuery}</code>
-                  </pre>
-                </div>
-                <div className="flex gap-4">
+          <div className="bg-white/5 backdrop-blur-xl border border-emerald-500/30 rounded-2xl p-6 mt-4 mb-4 relative overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full shadow-lg shadow-emerald-500/50"></div>
+                <span className="text-sm font-semibold text-emerald-400">Query Generated</span>
+              </div>
+              <p className="text-base text-slate-300 mb-4">
+                I've generated the perfect MongoDB query for your request. Here's what I found:
+              </p>
+              <div className="bg-black/40 border border-white/10 rounded-xl p-6 mb-6">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-sm font-semibold text-cyan-400">MongoDB Query</span>
                   <Button
-                    onClick={handleExecute}
-                    className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white hover:translate-y-[-2px]"
+                    onClick={handleCopy}
+                    variant="ghost"
+                    className="text-white hover:bg-slate-700"
+                    size="sm"
                   >
-                    <Check className="w-4 h-4 mr-2" />
-                    Execute Query
-                  </Button>
-                  <Button
-                    onClick={handleCancel}
-                    variant="destructive"
-                    className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white hover:translate-y-[-2px]"
-                  >
-                    <X className="w-4 h-4 mr-2" />
-                    Cancel
+                    {isCopied ? <Check className="w-4 h-4 mr-2" /> : <Copy className="w-4 h-4 mr-2" />}
+                    {isCopied ? 'Copied' : 'Copy'}
                   </Button>
                 </div>
-              </CardContent>
-            </NeonGradientCard>
+                <pre className="font-mono text-sm text-slate-300 whitespace-pre-wrap">
+                  <code>{generatedQuery}</code>
+                </pre>
+              </div>
+              <div className="flex gap-4">
+                <Button
+                  onClick={handleExecute}
+                  className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white hover:translate-y-[-2px]"
+                >
+                  <Check className="w-4 h-4 mr-2" />
+                  Execute Query
+                </Button>
+                <Button
+                  onClick={handleCancel}
+                  variant="destructive"
+                  className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white hover:translate-y-[-2px]"
+                >
+                  <X className="w-4 h-4 mr-2" />
+                  Cancel
+                </Button>
+              </div>
+            </CardContent>
           </div>
         )}
       </div>
 
-      {/* Input Section - Sticky and Fixed at Bottom */}
-      <div>
-        <div className="fixed bottom-0 left-0 right-0 p-2 md:p-4 z-10 bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
-          <div className="max-w-6xl mx-auto flex gap-4 items-end">
-            <Textarea
-              value={userInput}
-              onChange={handleInputChange}
-              onKeyPress={handleKeyPress}
-              placeholder="Type your query here..."
-              className="flex-1 bg-white/8 border-2 border-white/10 focus:border-cyan-400 focus:bg-white/12 focus:shadow-lg focus:shadow-cyan-500/20 text-base text-white placeholder:text-slate-500 rounded-2xl p-4 min-h-[60px] max-h-[120px]"
-              rows={3}
-            />
-            <Button
-              onClick={handleSubmit}
-              disabled={!userInput.trim()}
-              className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white h-[60px] min-w-[120px] rounded-2xl font-semibold hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyan-500/25"
-            >
-              Send ✨
-            </Button>
-          </div>
+      {/* Fixed Bottom Input Section */}
+      <div className="sticky bottom-0 z-40 bg-slate-900/95 backdrop-blur-xl border-t border-white/10 p-4">
+        <div className="flex gap-4 items-end">
+          <Textarea
+            value={userInput}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
+            placeholder="Type your query here..."
+            className="flex-1 bg-white/8 border-2 border-white/10 focus:border-cyan-400 focus:bg-white/12 focus:shadow-lg focus:shadow-cyan-500/20 text-base text-white placeholder:text-slate-500 rounded-2xl p-4 min-h-[60px] max-h-[120px]"
+            rows={1}
+          />
+          <Button
+            onClick={handleSubmit}
+            disabled={!userInput.trim()}
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white h-[60px] min-w-[120px] rounded-2xl font-semibold hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyan-500/25"
+          >
+            Send ✨
+          </Button>
         </div>
       </div>
     </div>
